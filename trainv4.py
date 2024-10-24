@@ -49,10 +49,11 @@ normalization_layer = layers.Rescaling(1./255)
 
 normalized_ds = train_ds.map(lambda x, y: (normalization_layer(x), y))
 
-# Compile and fit the model
-model.compile(optimizer='adam',
-              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-              metrics=['accuracy'])
+
+model.compile(
+  optimizer='adam',
+  loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+  metrics=['accuracy'])
 
 epochs=10
 history = model.fit(
@@ -61,14 +62,11 @@ history = model.fit(
   epochs=epochs
 )
 
-# Save the model
 model.save('model.h5')
 
-# Plot training and validation accuracy
 acc = history.history['accuracy']
 val_acc = history.history['val_accuracy']
 
-# Plot training and validation loss
 loss = history.history['loss']
 val_loss = history.history['val_loss']
 

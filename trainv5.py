@@ -1,8 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import PIL
 import tensorflow as tf
-import scipy
 
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -10,7 +8,7 @@ from tensorflow.keras.models import Sequential
 
 import tensorflow as tf
 
-# Load the dataset
+
 data_dir = "imagebin"
 image_generator = tf.keras.preprocessing.image.ImageDataGenerator(
     rescale=1./255,
@@ -28,7 +26,7 @@ image_data = image_generator.flow_from_directory(
     target_size=(224, 224)
 )
 
-# Create the model
+
 model = tf.keras.Sequential([
     tf.keras.layers.Conv2D(16, 3, padding='same', activation='relu', input_shape=(224, 224, 3)),
     tf.keras.layers.MaxPooling2D(),
@@ -43,7 +41,7 @@ model = tf.keras.Sequential([
     tf.keras.layers.Dense(image_data.num_classes, activation='softmax')
 ])
 
-# Compile the model
+
 model.compile(
     optimizer='adam',
     loss='categorical_crossentropy',
