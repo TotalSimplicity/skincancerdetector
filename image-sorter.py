@@ -1,9 +1,9 @@
 import os
 import csv
 
-image_dir = '/home/leo/Documents/ScienceFair2023/images'
+image_dir = 'imagebin'
 
-csv_file = '/home/leo/Documents/ScienceFair2023/HAM10000_metadata.csv'
+csv_file = 'HAM10000_metadata.csv'
 
 labels = {}
 

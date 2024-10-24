@@ -11,7 +11,7 @@ from tensorflow.keras.models import Sequential
 import tensorflow as tf
 
 # Load the dataset
-data_dir = "C:/Users/leona/Documents/Projects/Full/images"
+data_dir = "imagebin"
 image_generator = tf.keras.preprocessing.image.ImageDataGenerator(
     rescale=1./255,
     rotation_range=45,
@@ -57,7 +57,7 @@ history = model.fit(
 )
 
 # Save the model
-model.save('image_classifier.h5')
+model.save('imagehelp.h5')
 
 
 acc = history.history['accuracy']
